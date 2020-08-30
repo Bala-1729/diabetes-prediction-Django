@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- documentation at http://getbootstrap.com/docs/4.1/, alternative themes at https://bootswatch.com/ -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+  <style media="screen">
+  body, html {
+    height: 100%;
+    margin: 0;
+    }
+
+    .bg {
+    /* The image used */
+    background-image: url("https://www.wallpapertip.com/wmimgs/11-119918_background-for-hospital-website.png");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: repeat;
+    background-size: cover;
+    }
+    label,p{
+    color:#fdcb9e ;
+    font-size:17px;
+}
+
+</style>
+  <title>Diabetes Prediction</title>
+</head>
+{% load crispy_forms_tags %}
+
+<body class="bg ">
+  <div class="col offset-md-3 col-md-6" style="padding:20px">
+    <form class="jumbotron my-auto" action='' method="post" style="background-color: rgba(0,0,0,0.7);">
+      {%csrf_token%}
+        <h3 style="font-family: 'Martel', serif;font-weight: 900;font-size:50px;color:#ffc93c;text-align:center">Medical Details</h3>
+      <hr>
+      <div class="form-row col col-12">
+        <div class="form-group col-lg-6">
+          {{form.pregnancies|as_crispy_field}}
+        </div>
+
+        <div class="form-group col-lg-6">
+          {{form.glucose|as_crispy_field}}
+        </div>
+
+        <div class="form-group col-lg-6">
+          {{form.bloodpressure|as_crispy_field}}
+        </div>
+
+        <div class="form-group col-lg-6">
+          {{form.skinthickness|as_crispy_field}}
+        </div>
+
+        <div class="form-group col-lg-6">
+          {{form.insulin|as_crispy_field}}
+        </div>
+
+        <div class="form-group col-lg-6">
+          {{form.bmi|as_crispy_field}}
+        </div>
+
+        <div class="form-group col-lg-6">
+          {{form.diabetespedgreefunction|as_crispy_field}}
+        </div>
+
+        <div class="form-group col-lg-6">
+          {{form.age|as_crispy_field}}
+        </div>
+        <div class="col-12">
+          {%if boolean%}
+            <p>You have {{output}}% Chances of having Diabetes</p>
+          {%endif%}
+        </div>
+        <div class="col text-center">
+          <button type="submit" class="btn btn-primary ">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
+<script src="/static/script.js"></script>
+
+</html>
